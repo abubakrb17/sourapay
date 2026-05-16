@@ -1190,6 +1190,19 @@ function switchTab(t){
   document.getElementById('atab-signup').className='atab'+(t==='signup'?' on':'');
 }
 function enterApp(){showPage('app')}
+   function submitEmail() {
+  const email = document.getElementById('emailInput').value;
+  if (!email || !email.includes('@')) return;
+  
+  fetch('https://forminit.com/f/yovyvhdxnyh', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({ email: email })
+  });
+
+  document.getElementById('signupForm').style.display = 'none';
+  document.getElementById('successMsg').style.display = 'block';
+}
 
 // PANELS
 function gotoPanel(id,navEl){
